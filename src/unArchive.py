@@ -115,6 +115,7 @@ class Ui_MainWindow(object):
         import rarfile
         import zipfile
         from zipfile import BadZipFile
+        import tarfile
 
         if self.path == '' or self.path is None or self.unpath == '' or self.unpath is None:
             messagebox.showerror(title='Ошибка!', message='Выбирете сначала файл архива и путь куда распаковать архив!')
@@ -145,7 +146,18 @@ class Ui_MainWindow(object):
 
                     messagebox.showinfo(title='Успешно!', message=f'Файл {self.unpath} успешно распакован!')
                 except Exception as e:
-                    messagebox.showerror(title='Ошибка!', message=f'Ошибка при распаковке RAR архива: {e}')
+                    try:
+                        if self.path.endswith('tar.gz'):
+                            tar = tarfile.open(self.path, 'r:gz')
+                        elif self.path.endswith('tar'):
+                            tar = tarfile.open(self.path, 'r:')
+
+                        tar.extractall(path=self.unpath)
+                        tar.close()
+                        messagebox.showinfo(title='Успешно!', message=f'Файл {self.unpath} успешно распакован!')
+                    except Exception as e:
+                        messagebox.showerror(title='Ошибка!', message=f'Код ошибки {e}')
+                        
 
     def exit(self):
         self.actions.append('Application Exit')

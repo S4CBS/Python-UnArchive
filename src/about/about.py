@@ -32,7 +32,7 @@ class AboutDialog(QDialog):
         self.layout.addWidget(title)
 
         lbl1 = QLabel(
-            '<center><a href="https://github.com/S4CBS" style="text-decoration: none; color: #0000FF;">Version 1.0<br>Created by https://github.com/S4CBS</a></center>'
+            '<center><a href="https://github.com/S4CBS" style="text-decoration: none; color: #0000FF;">Version 1.5<br>Created by https://github.com/S4CBS</a></center>'
         )
         lbl1.setFont(QFont("Times", 10))
         lbl1.setOpenExternalLinks(True)
