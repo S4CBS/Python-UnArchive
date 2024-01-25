@@ -1,2 +1,5 @@
-# Python-UnArchive
-UNRAR, UNZIP, UNJAR
+# Supports the main formats:
+- RAR
+- ZIP
+- TAR
+- TAR.GZ
