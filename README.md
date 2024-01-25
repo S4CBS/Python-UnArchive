@@ -3,3 +3,4 @@
 - ZIP
 - TAR
 - TAR.GZ
+- JAR
